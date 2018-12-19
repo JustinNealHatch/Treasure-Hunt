@@ -8,7 +8,7 @@ class Board extends Component {
     super(props)
     this.state = {
       spaces: ['❓','❓','❓','❓','❓','❓','❓','❓','❓'],
-      count: 9,
+      count: 5,
       id: '',
       winner: 1,
       bomb: 1,
@@ -32,10 +32,16 @@ class Board extends Component {
     } else {
       if(winner == id){
         spaces[id]="🎁"
+        alert("🎁Winner!🎁")
+        return this.reset()
       } else if (spaces[id]==="🌲"){
         count= count +1
       } else if (bomb == id){
         spaces[id]='💣'
+        alert("💣'Bomb!💣'")
+        return this.reset()
+      } else if ( count == 0){
+        return this.reset()
       } else {
         spaces[id]="🌲"
       }
@@ -54,7 +60,7 @@ class Board extends Component {
 reset() {
   this.setState({
     spaces: ['❓','❓','❓','❓','❓','❓','❓','❓','❓'],
-    count: 9,
+    count: 5,
     id: '',
     winner: Math.floor((Math.random() * 9)),
     bomb: Math.floor((Math.random() * 9)),
@@ -68,7 +74,7 @@ reset() {
     return (
       <div className="board">
         <div>
-          <h1>Current Turns: {this.state.count}</h1>
+          <h1>Chances: {this.state.count}</h1>
         </div>
         <div>
           <div className="grid-item" id='0' onClick={this.handleChange.bind(this)}>{this.state.spaces[0]}</div>
