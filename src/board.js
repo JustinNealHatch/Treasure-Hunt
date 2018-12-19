@@ -32,6 +32,8 @@ class Board extends Component {
     } else {
       if(winner == id){
         spaces[id]="🎁"
+      } else if (spaces[id]==="🌲"){
+        count= count +1
       } else if (bomb == id){
         spaces[id]='💣'
       } else {
