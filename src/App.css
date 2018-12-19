@@ -2,7 +2,7 @@
 display: inline-flex;
 flex-wrap: wrap;
 width:320px;
-
+text-align: center;
 }
 
 .grid-item{
@@ -11,5 +11,10 @@ width:320px;
   border:1px solid black;
   display:inline-block;
   line-height: 80px;
+}
 
+.ResetButton {
+  display: flex;
+  margin-top: 50px;
+  border: 2px solid red;
 }
